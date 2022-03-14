@@ -1,0 +1,43 @@
+Symfony 4 structure for Wmsuccess project development
+
+
++ In src/Wmsuccess/Service :
+    This is the Bundle that will handle all the useful services during development.
+    Below is the respective roles of the folders and files in this bundle.
+        - Entity :
+            Management file and centralization of entities (generation, recovery, modification, ...).
+        - Listeners:
+            Interception and triggering of events. It contains files like AuthenticationListener.php
+            which serves for example to trigger the events during the success of the authentication
+            or the failure of authentication.
+        - Metier :
+            This folder contains all the common business services and repositories of the project.
+        - Repository :
+            This folder contains all the repositories for each entity.
+        - Utils :
+            This folder contains the class list with useful constants in the project.
+            Examples :
+                EntityName.php this class contains the names of all entities to standardize nomenclature.
+                ServiceName.php to standardize the nomenclature of services and make it constantly.
+
++ In src/Wmsuccess/BackOffice :
+    This is the Bundle that contains the code blocks for only the BackOffice.
+    ==> In controller :
+            List of controllers used in BackOffice.
+    ==> In /Resources/config :
+            List of config cards in BackOffice.
+            Example : routing.yml for specific routes for the BO.
+    ==> In /Resources/views :
+            List of twig files that are displayed in BackOffice.
+            Example : add.html.twig
+
++ In templates :
+    This is the directory that contains the parent (twig) files for the BackOffice/FrontOffice.
+    Example : base-admin-footer.html.twig
+
++ In public :
+    This is the directory that contains the public files (image, css, js, ...) used in the application.
+    Examples :
+        - The backoffice directory contains the files css, js, ... concerning only for the BackOffice.
+        - The upload directory contains the sent files.
+        - The plugins directory contains the plugins used in the BackOffice and the FrontOffice.

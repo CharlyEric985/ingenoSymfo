@@ -1,0 +1,19 @@
+home_index:
+    path:     /
+    defaults: { _controller: 'App\Wmsuccess\FrontOffice\FrontBundle\Controller\WmsHomeController::index' }
+    methods:  GET
+
+home_ville:
+  path:     /{id}/ville
+  controller: 'App\Wmsuccess\FrontOffice\FrontBundle\Controller\WmsHomeController::getVilleId'
+  methods:  GET
+
+insertion_dirigeant:
+  path:     /insert-dirigeant
+  controller: 'App\Wmsuccess\FrontOffice\FrontBundle\Controller\WmsHomeController::insertionDirigeant'
+  methods:  POST
+
+insertion_societe:
+  path:     /insert-societe
+  controller: 'App\Wmsuccess\FrontOffice\FrontBundle\Controller\WmsHomeController::insertionSociete'
+  methods:  POST

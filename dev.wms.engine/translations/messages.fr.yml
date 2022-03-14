@@ -1,0 +1,131 @@
+#Contact
+contact.message.title : Votre message
+contact.message.content : Message
+contact.message.email : Email
+contact.message.fullname : Nom et prénoms
+contact.mail.sent : Email a été bien envoyé
+contact.mail.reply.sent : Reponse envoyé avec success
+contact.mail.not.sent : Email n'a pas été envoyé
+
+#Newsletter
+newsletter.confirmation.unsubscriber: Vous êtes maintenant désabonné du newsletter
+newsletter.envoi.mail: Mail newsletter envoyé avec succès
+
+#bo general
+bo.confirmation.add: Enregistrement effectué avec succès
+bo.confirmation.update: Modification effectuée avec succès
+bo.confirmation.delete: Suppression effectuée avec succès
+bo.confirmation.deletion: Etes vous sûr de vouloir supprimer ?
+bo.confirmation.selection.delete: Veuillez sélectionner un élément à supprimer
+bo.controller.message.edit:
+bo.index.total: TOTAL
+bo.index.list: Liste
+bo.index.adding: Ajout
+bo.index.updating: Modification
+bo.index.th.action: Action
+bo.button.selection.delete: Supprimer la sélection
+bo.button.return: Retour à la liste
+bo.button.update: Modifier
+bo.button.delete: Supprimer
+bo.button.send: Envoyer
+bo.button.create: Créer
+bo.button.add: Ajouter
+bo.button.save: Enregistrer
+bo.button.login: Connecter
+bo.global.yes : Oui
+bo.global.no : Non
+bo.global.validate : Valider
+bo.global.cancel : Annuler
+bo.global.tooltip.activate : Activer
+bo.global.tooltip.deactivate : Désactiver
+bo.global.tooltip.show : Visualiser
+bo.global.tooltip.download : Télécharger
+
+#validation
+bo.global.required.field: Ce champ est requis
+bo.global.required.field.date: Sélectionner la date
+bo.global.greater.than.zero.field: Ce champ doit être supérieur ou égal à zéro.
+bo.global.greater.than.zero.field.sec: Ce champ doit être inférieur ou égal aux valeur poid humide.
+bo.global.invalid.value: Valeur invalide
+bo.global.invalid.length: Valeur trop court
+bo.global.invalid.email: Email invalide (wmsuccess@mail.com)
+
+# datatable
+bo.datatable.no.record : Aucun enregistrement trouvé
+bo.datatable.no.info.empty : Affichage de l'élément 0 à 0 sur 0 élément
+bo.datatable.previous: Précédente
+bo.datatable.next: Suivante
+bo.datatable.filter: Filtrer
+bo.datatable.loading: Chargement...
+bo.datatable.display: Afficher
+bo.datatable.recording: enregistrement par page
+bo.datatable.see: Voir
+bo.datatable.entrees: entrées
+bo.datatable.rows.selected: lignes sélectionnées
+bo.datatable.row.selected: ligne sélectionnée
+bo.datatable.no.rows.selected: Aucune ligne sélectionnée
+bo.datatable.no.activate.sort.asc: activer pour trier la colonne par ordre croissant
+bo.datatable.no.activate.sort.desc: activer pour trier la colonne par ordre décroissant
+bo.datatable.search : Rechercher
+bo.datatable.of: de
+bo.datatable.for: pour
+bo.datatable.zero.records: Aucun élément correspondant trouvé
+bo.datatable.first: Premier
+bo.datatable.last: Dernier
+bo.datatable.display.page.txt : Afficher _MENU_ enregistrement par page
+bo.datatable.find.page.txt : Voir _TOTAL_ de _PAGE_ pour _PAGES_ entrées
+bo.datatable.search.txt : Rechercher...
+
+#Resetting
+resetting.pasword.email.sent: Un email contenant un lien pour réinitialiser votre mot de passe a été envoyé à %adresse%.
+resetting.pasword.success: Modification mot de passe effectué
+resetting.pasword.user.not.identified: Utilisateur non identifié
+resetting.pasword.email.subject: Récupération mot de passe oublié
+resetting.pasword.email.title: Réinitialisation du mot de passe
+resetting.pasword.email.forgotten.here: ici
+resetting.pasword.email.forgotten.content: Pour réinitialiser votre mot de passe, cliquez %here%!
+resetting.pasword.email.forgotten.enter.new: Entrer nouveau mot de passe
+resetting.pasword.email.forgotten.enter.confirm: Confirmer mot de passe
+resetting.pasword.email.forgotten.send: Envoyer
+resetting.pasword.email.forgotten.save: Enregistrer
+
+#Exception
+exception.entity: Unable to find Entity
+exception.no.result : Aucun résultat trouvé
+exception.unauthorized: Accès non autorisé
+exception.user.disabled: Utilisateur desactivé
+
+#Header & login
+header.profile : Mon profil
+header.update.profile : Modifier mon profil
+header.logout : Se déconnecter
+header.username : E-mail
+header.login : Se connecter
+header.password : Mot de passe
+header.remember : Se souvenir de moi
+
+#label
+label.title: Titre
+label.image: Image
+
+#Menu
+menu.dashboard: Tableau de bord
+menu.user: Gestion utilisateur
+menu.basic.data: Données de base
+menu.basic.data.slider: Slider
+menu.basic.data.service: Service
+menu.basic.data.realisation.type: Réalisation type
+menu.basic.data.realisation: Réalisation
+menu.basic.data.avis: Avis
+menu.basic.data.text: Info contact
+menu.cms: Page CMS
+menu.contact: Contact
+menu.devoir.data: Devoir
+menu.devoir.job: Gestion Poste
+menu.devoir.staff: Gestion Personnel
+
+#Job
+bo.job.edit.job: Modification de poste
+
+#Staff
+bo.staff.edit.staff: Modification de personnel

@@ -1,0 +1,115 @@
+body{margin-top:20px;
+background:#eee;
+}
+address{
+	font-weight:500;
+}
+.kl-invoice {
+    padding: 30px;
+}
+
+.kl-invoice h2 {
+	margin-top: 0px;
+	line-height: 0.8em;
+}
+
+.kl-invoice .small {
+	font-weight: 300;
+}
+
+.kl-invoice hr {
+	margin-top: 10px;
+	border-color: #ddd;
+}
+
+.kl-invoice .table tr.line {
+	border-bottom: 1px solid #ccc;
+}
+
+.kl-invoice .table td {
+	border: none;
+}
+
+.kl-invoice-bordered-table.kl-invoice table td{
+	border:1px solid #bdc3c7;
+}
+
+.kl-invoice-bordered-table.kl-invoice table td{
+	border:1px solid #bdc3c7;
+}
+
+.kl-green-invoice.kl-invoice table td{
+	border:1px solid #fff;
+}
+
+.kl-invoice .identity {
+	margin-top: 10px;
+	font-size: 1.1em;
+	font-weight: 300;
+}
+
+.kl-invoice .identity strong {
+	font-weight: 600;
+}
+
+.grid {
+    position: relative;
+	width: 100%;
+	background: #fff;
+	color: #666666;
+	border-radius: 2px;
+	margin-bottom: 25px;
+	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.kl-custom-color{
+	color:#2980b9 !important;
+}
+
+.kl-custom-color-red{
+	color:#e74c3c;
+}
+
+.kl-custom-color-green{
+	color:#27ae60;
+}
+
+.kl-custom-color-td{
+	background:#2980b9 !important;
+	color:#fff;
+}
+
+.kl-custom-color-red-td{
+	background:#e74c3c !important;
+	color:#fff !important;
+}
+
+.kl-custom-color-green-td{
+	background:#27ae60 !important;
+	color:#fff !important;
+}
+
+.kl-bordered{
+	border:1px solid #e74c3c;
+}
+
+.kl-my-infos{
+	font-size:16.5px;
+}
+
+.kl-title-invoice-colored{
+	font-size:17px;
+	padding:10px;
+	background:#27ae60;
+	color:#fff;
+}
+/*Green table*/
+.kl-green-invoice .table-striped>tbody>tr{
+	--bs-table-accent-bg:rgba(46, 204, 113, 0.5);
+}
+.kl-green-invoice .table-striped>tbody>tr:nth-of-type(odd){
+	--bs-table-accent-bg:rgba(39, 174, 96, 0.5);
+}
+.kl-green-invoice .table>:not(:last-child)>:last-child>*{
+	border-bottom:none;
+}

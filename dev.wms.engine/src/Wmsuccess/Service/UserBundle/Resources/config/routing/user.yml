@@ -1,0 +1,34 @@
+user_list_ajax:
+    path:     /list-ajax
+    controller: App\Wmsuccess\Service\UserBundle\Controller\UserController::listAjax
+    methods:  GET
+
+user_index:
+    path:     /
+    controller: App\Wmsuccess\Service\UserBundle\Controller\UserController::index
+    methods:  GET
+
+user_new:
+    path:     /new
+    controller: App\Wmsuccess\Service\UserBundle\Controller\UserController::new
+    methods:  [GET, POST]
+
+user_edit:
+    path:     /{id}/edit
+    controller: App\Wmsuccess\Service\UserBundle\Controller\UserController::edit
+    methods:  [GET, PUT]
+
+user_delete:
+    path:     /{id}/delete
+    controller: App\Wmsuccess\Service\UserBundle\Controller\UserController::delete
+    methods:  [GET, DELETE]
+
+user_delete_image_ajax:
+    path:     /delete-image
+    controller: App\Wmsuccess\Service\UserBundle\Controller\UserController::deleteImageAjax
+    methods:  POST
+
+user_profile:
+    path:     /profile
+    controller: App\Wmsuccess\Service\UserBundle\Controller\UserController::profile
+    methods:  [GET, DELETE, POST]

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %} {{ 'bo.sidebar.title.project'|trans }} | {% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" type="text/css" href="{{ asset('frontoffice/css/style.css') }}" />
+            <link rel="stylesheet" type="text/css" href="{{ asset('frontoffice/css/bootstrap.css') }}" />
+            <link rel="stylesheet" type="text/css" href="{{ asset('frontoffice/css/responsive.css') }}" />
+            <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto" />
+            <link rel="stylesheet" type="text/css" href="{{ asset('frontoffice/css/bootstrap-datepicker.css') }}" />
+            <link rel="stylesheet" type="text/css" href="{{ asset('frontoffice/css/bootstrap-iso.css') }}" />
+            <link rel="stylesheet" type="text/css" href="{{ asset('frontoffice/css/custom.css') }}" />
+            <!-- Font Awesome -->
+            <link href="{{ asset('plugins/admin-lte/bower_components/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+            <!-- Ionicons -->
+            <link href="{{ asset('plugins/admin-lte/bower_components/Ionicons/css/ionicons.min.css') }}" rel="stylesheet">
+            <!-- Datatables -->
+            <link href="{{ asset('plugins/admin-lte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        {% endblock %}
+        <link rel="shortcut icon" href="{{ asset('frontoffice/images/favicon.ico') }}"/>
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <!-- Header -->
+            {{ include("frontoffice/base_front_header_error.html.twig") }}
+
+            <!-- Main content -->
+            {% block body %}{% endblock %}
+
+            <!-- Footer -->
+            {{ render(controller('FrontBundle:TxFooter:show')) }}
+        </div>
+    </body>
+</html>

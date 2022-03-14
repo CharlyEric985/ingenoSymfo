@@ -1,0 +1,253 @@
+{% extends 'frontoffice/base_front.html.twig' %}
+
+{% block body %}
+
+    <div id="option">
+        <select name="selected" id="ItemsWrap" onchange="AddItem()">
+            <option value="Dirigeant">Dirigeant</option>
+            <option value="Société">Société</option>
+        </select>
+    </div>
+    <div id="div1">
+        <div id="formul">
+
+        </div> 
+    </div>
+
+    <input type="hidden" id="id-code" value="{{ codes|json_encode() }}">
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+    	var url_dirigeant = '{{path('insertion_dirigeant')}}';
+    	var url_societe = '{{path('insertion_societe')}}';
+    </script>
+
+    <script type="text/javascript">
+    
+    let code = document.createElement('select');
+    let ville =document.createElement('select');
+    let data_result = null;
+
+    function removeAll(ville){
+    	while(ville.options.length > 0){
+    		ville.remove(0);
+    	}
+    }
+
+    async function replaceId(){
+    	let ville_id = await fetch('/'+code.value+'/ville');
+		let text = await ville_id.text();
+		
+		let data = JSON.parse(text);
+		if(data != null){
+			removeAll(ville);
+        	for(let i=0;i<data.length;i++){
+		 		let optionville =document.createElement('option');
+	          	optionville.setAttribute('value',data[i]['id']);
+	          	optionville.innerHTML=data[i]['ville'];
+	          	ville.appendChild(optionville);
+        	}
+        }
+    }
+
+    var codes = document.getElementById('id-code').value;
+    let code_tab  = JSON.parse(codes);
+
+	let ItemWrap = document.getElementById('ItemsWrap');
+    function DeleteItem(idItem){
+        document.getElementById(idItem).remove();
+    }
+
+    function AddItem(data){
+        DeleteItem('formul');
+        let div=document.createElement('div');
+        div.setAttribute('id','formul');
+        if(ItemWrap.value=='Dirigeant'){
+            let form = document.createElement('form');
+            let text=document.createElement('p');
+            text.setAttribute('id','text1');
+            text.innerHTML="Dirigeant";
+            form.setAttribute('action',url_dirigeant);
+            form.setAttribute('method','post');
+            let nom=document.createElement('input');
+            let br=document.createElement('br');
+            let br1=document.createElement('br');
+            let br2=document.createElement('br');
+            let br3=document.createElement('br');
+            let br4=document.createElement('br');
+            nom.setAttribute('type','text');
+            nom.setAttribute('placeholder','nom');
+            nom.setAttribute('id','nom');
+            nom.setAttribute('name','nom');
+            div.appendChild(text);
+            let prenom=document.createElement('input');
+            prenom.setAttribute('type','text');
+            prenom.setAttribute('placeholder','prenom');
+            prenom.setAttribute('id','prenom');
+            prenom.setAttribute('name','prenom');
+            let email=document.createElement('input');
+            email.setAttribute('type','email');
+            email.setAttribute('id','email');
+            email.setAttribute('placeholder','email');
+            email.setAttribute('name','email');
+            let h=document.createElement('input');
+            h.setAttribute('name','sexe');
+            h.setAttribute('type','radio');
+            h.setAttribute('value','h');
+            let ph=document.createElement('p');
+            ph.innerHTML='homme';
+            let f=document.createElement('input');
+            f.setAttribute('name','sexe');
+            f.setAttribute('type','radio');
+            f.setAttribute('value','f');
+            let pf=document.createElement('p');
+            pf.innerHTML='femme';
+            let but=document.createElement('button');
+            but.setAttribute('type','submit');
+            but.innerHTML="inserer";
+            form.appendChild(nom);
+            form.appendChild(br3);
+            form.appendChild(prenom);
+            form.appendChild(br1);
+            form.appendChild(email);
+            form.appendChild(br2);
+            ph.appendChild(h);
+            form.appendChild(ph);
+            pf.appendChild(f);
+            form.appendChild(pf);
+            form.appendChild(br);
+            form.appendChild(but);
+            div.appendChild(form);
+            document.getElementById('div1').appendChild(div);
+        }
+        if(ItemWrap.value=='Société'){
+            let form = document.createElement('form');
+            let text=document.createElement('p');
+            text.setAttribute('id','text2');
+            text.innerHTML="Société";
+            form.setAttribute('action',url_societe);
+            form.setAttribute('method','post');
+            div.appendChild(text);
+            let societe=document.createElement('input');
+            societe.setAttribute('name','societe');
+            societe.setAttribute('type','text');
+            let desc=document.createElement('textArea');
+            desc.setAttribute('name','desc');
+            let check_0=document.createElement('input');
+            check_0.setAttribute('name','check_0');
+            check_0.setAttribute('value','SARL');
+            check_0.setAttribute('type','checkbox');
+            let label=document.createElement('label');
+            label.innerHTML='SARL';
+            let check_1=document.createElement('input');
+            check_1.setAttribute('name','check_1');
+            check_1.setAttribute('value','EURL');
+            check_1.setAttribute('type','checkbox');
+            let label_1=document.createElement('label');
+            label_1.innerHTML='EURL';
+            let check_2=document.createElement('input');
+            check_2.setAttribute('name','check_2');
+            check_2.setAttribute('value','SELARL');
+            check_2.setAttribute('type','checkbox');
+            let label_2=document.createElement('label');
+            label_2.innerHTML='SELARL';
+            let check_3=document.createElement('input');
+            check_3.setAttribute('name','check_3');
+            check_3.setAttribute('value','SA');
+            check_3.setAttribute('type','checkbox');
+            let label_3=document.createElement('label');
+            label_3.innerHTML='SA';
+            let check_4=document.createElement('input');
+            check_4.setAttribute('name','check_4');
+            check_4.setAttribute('value','SAS');
+            check_4.setAttribute('type','checkbox');
+            let label_4=document.createElement('label');
+            label_4.innerHTML='SAS';
+            let check_5=document.createElement('input');
+            check_5.setAttribute('name','check_5');
+            check_5.setAttribute('value','SASU');
+            check_5.setAttribute('type','checkbox');
+            let label_5=document.createElement('label');
+            label_5.innerHTML='SASU';
+            let check_6=document.createElement('input');
+            check_6.setAttribute('name','check_6');
+            check_6.setAttribute('value','SNC');
+            check_6.setAttribute('type','checkbox');
+            let label_6=document.createElement('label');
+            label_6.innerHTML='SNC';
+            let check_7=document.createElement('input');
+            check_7.setAttribute('name','check_7');
+            check_7.setAttribute('value','SCP');
+            check_7.setAttribute('type','checkbox');
+            let label_7=document.createElement('label');
+            label_7.innerHTML='SCP';
+
+            code.setAttribute('name','code');
+            code.setAttribute('id','id-code-id');
+            for(let i=0;i<code_tab.length;i++){
+	            let optioncode=document.createElement('option');
+	            optioncode.setAttribute('value',code_tab[i]['id']);
+	            optioncode.innerHTML=code_tab[i]['code'];
+	            code.appendChild(optioncode);
+	        }
+	        // const code_id = document.getElementById('id-code-id').value;
+	        code.setAttribute('onchange',`replaceId()`);
+
+            
+            ville.setAttribute('name','ville');
+            ville.setAttribute('id','id-ville');
+            
+            // let result = replaceId();
+            // console.log(result);
+            // let optionville =document.createElement('option');
+            // optionville.setAttribute('value','toamasina');
+            // optionville.innerHTML='toamasina';
+            let but=document.createElement('button');
+            but.setAttribute('type','submit');
+            but.innerHTML="inserer";
+            let br=document.createElement('br');
+            let br1=document.createElement('br');
+            let br2=document.createElement('br');
+            let br3=document.createElement('br');
+            let br4=document.createElement('br');
+            form.appendChild(societe);
+            form.appendChild(br);
+            form.appendChild(desc);
+            form.appendChild(br1);
+            form.appendChild(check_0);
+            form.appendChild(label);
+            form.appendChild(check_1);
+            form.appendChild(label_1);
+            form.appendChild(check_2);
+            form.appendChild(label_2);
+            form.appendChild(check_3);
+            form.appendChild(label_3);
+            form.appendChild(check_4);
+            form.appendChild(label_4);
+            form.appendChild(check_5);
+            form.appendChild(label_5);
+            form.appendChild(check_6);
+            form.appendChild(label_6);
+            form.appendChild(check_7);
+            form.appendChild(label_7);
+            form.appendChild(br2);
+            form.appendChild(code);
+            form.appendChild(br3);
+            form.appendChild(ville);
+            form.appendChild(br4);
+            form.appendChild(but);
+            div.appendChild(form);
+            document.getElementById('div1').appendChild(div);
+        }
+        
+    }
+    AddItem(data_result);
+
+
+</script>
+
+{% endblock %}

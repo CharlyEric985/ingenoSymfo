@@ -1,0 +1,79 @@
+{% extends 'backoffice/base.html.twig' %}
+
+{% form_theme profile_form 'form/fields.html.twig' %}
+
+{% block title %} {{ parent() }} Mon profil {% endblock %}
+
+{% set menu_user = true %}
+
+{% block body %}
+    <!-- Header -->
+    {{ include('backoffice/breadcrumb.html.twig', {
+        'breadcrumb_item_one': 'User profile',
+        'breadcrumb_item_two': 'Back to the dashboard',
+        'with_link': true,
+        'breadcrumb_link': path('bo_dashboard_index')
+    }) }}
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card-wrapper">
+                    <!-- Form controls -->
+                    <div class="card">
+                        <!-- Card header -->
+                        <div class="card-header">
+                            <h3 class="mb-0">User profile modification</h3>
+                        </div>
+                        <!-- Card body -->
+                        <div class="card-body">
+                            {{ form_start(profile_form, {attr:{'enctype':'multipart/form-data'}}) }}
+                            <div class="form-group row">
+                                <div class="col-sm-8">
+                                    <label for="id-upload-file" class="kl-custom-file">
+                                        Photo de profil : <br>
+                                        <span class="kl-photo-name">
+                                                {{ user.wmsFile ? user.wmsFile.flName : 'Choisir une photo' }}
+                                            </span>
+                                    </label>
+                                    <input id="id-upload-file" type="file" name="usr_photo" accept="image/*"
+                                           style="visibility: hidden">
+                                </div>
+                                <div class="col-sm-4">
+                                    {% if user.wmsFile %}
+                                        <a href="javascript:void(0);" data-id="{{ app.user.id }}"
+                                           class="kl-icon-delete-photo">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    {% endif %}
+                                    {% set img_profile = user.wmsFile ? user.wmsFile.flUrl : 'backoffice/images/no-image.png' %}
+                                    <img src="{{ asset(img_profile) }}"
+                                         width="110" height="80" alt="img profile" class="kl-preview-profile">
+                                </div>
+                            </div>
+                            {{ form_row(profile_form.usrLastname) }}
+                            {{ form_row(profile_form.usrFirstname) }}
+                            {{ form_row(profile_form.email) }}
+                            {{ form_row(profile_form.password) }}
+
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-primary"
+                                       value="{{ 'bo.button.update'|trans({}, "messages", locale) }}"
+                                       name="new_user"/>
+                            </div>
+                            {{ form_end(profile_form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        {{ include('backoffice/footer.html.twig') }}
+        <!-- End of Footer -->
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('backoffice/js/user.edit.js') }}   "></script>
+{% endblock %}

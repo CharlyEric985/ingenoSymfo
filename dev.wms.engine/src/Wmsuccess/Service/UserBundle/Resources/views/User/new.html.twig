@@ -1,0 +1,71 @@
+{% extends 'backoffice/base.html.twig' %}
+
+{% form_theme form 'form/fields.html.twig' %}
+
+{% block title %} {{ parent() }} Ajout utilisateur {% endblock %}
+
+{% set menu_user = true %}
+
+{% block body %}
+    <!-- Header -->
+    {{ include('backoffice/breadcrumb.html.twig', {
+        'breadcrumb_item_one': 'Ajout utilisateur',
+        'breadcrumb_item_two': 'Retour à la liste',
+        'with_link': true,
+        'breadcrumb_link': path('user_index')
+    }) }}
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card-wrapper">
+                    <!-- Form controls -->
+                    <div class="card">
+                        <!-- Card header -->
+                        <div class="card-header">
+                            <h3 class="mb-0">Ajout utilisateur</h3>
+                        </div>
+                        <!-- Card body -->
+                        <div class="card-body">
+                            {{ form_start(form, {attr:{'enctype':'multipart/form-data'}}) }}
+                                <div class="form-group row">
+                                    <div class="col-sm-8">
+                                        <label for="id-upload-file" class="kl-custom-file">
+                                            Photo de profil : <br>
+                                            <span class="kl-photo-name">Choisir une photo</span>
+                                        </label>
+                                        <input id="id-upload-file" type="file" name="usr_photo" accept="image/*" style="visibility: hidden">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        {% set img_profile = user.wmsFile ? user.wmsFile.flUrl : 'backoffice/images/no-image.png' %}
+                                        <img src="{{ asset(img_profile) }}"
+                                             width="110" height="80" alt="img profile" class="kl-preview-profile">
+                                    </div>
+                                </div>
+                                {{ form_row(form.wmsRole) }}
+                                {{ form_row(form.usrLastname) }}
+                                {{ form_row(form.usrFirstname) }}
+                                {{ form_row(form.email) }}
+                                {{ form_row(form.password) }}
+
+                                <div class="form-group">
+                                    <input type="submit" class="btn btn-primary"
+                                           value="{{ 'bo.button.save'|trans({}, "messages", locale) }}"
+                                           name="new_user"/>
+                                </div>
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        {{ include('backoffice/footer.html.twig') }}
+        <!-- End of Footer -->
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('backoffice/js/user.edit.js') }}   "></script>
+{% endblock %}

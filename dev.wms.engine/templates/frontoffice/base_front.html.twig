@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Creative Tim">
+        <title>{% block title %} SYMFONY | INGENOSYA {% endblock %}</title>
+        {% block stylesheets %}
+            <!-- Fonts -->
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+            <!-- Icons -->
+            <link rel="stylesheet" href="{{ asset('plugins/vendor/nucleo/css/nucleo.css') }}" type="text/css">
+            <link rel="stylesheet" href="{{ asset('plugins/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}"
+                  type="text/css">
+            <!-- Page plugins -->
+            <link rel="stylesheet" href="{{ asset('plugins/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css')
+                }}">
+            <link rel="stylesheet" href="{{ asset('plugins/vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.
+                min.css') }}">
+            <link rel="stylesheet" href="{{ asset('plugins/vendor/datatables.net-select-bs4/css/select.bootstrap4.
+                min.css') }}">
+            <link rel="stylesheet" href="{{ asset('plugins/vendor/select2/dist/css/select2.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('plugins/vendor/bootstrap-multiselect/BsMultiSelect.min.css') }}">
+            <!--<link rel="stylesheet" href="{{ asset('plugins/vendor/smart-wizard/smart_wizard.css') }}">-->
+            <!-- Argon CSS -->
+{#            <link rel="stylesheet" href="{{ asset('backoffice/css/argon.css') }}" type="text/css">#}
+            <link rel="stylesheet" href="{{ asset('backoffice/css/custom.css') }}" type="text/css">
+        {% endblock %}
+        <!-- Favicon -->
+{#        <link rel="icon" href="{{ asset('backoffice/img/brand/favicon.png') }}" type="image/png">#}
+    </head>
+
+    <body>
+        <!-- Left side column. contains the logo and sidebar -->
+        {#{{ include("backoffice/base_admin_sidebar.html.twig") }}#}
+
+        <!-- Main content -->
+        <div class="main-content" id="panel">
+            <!-- Topnav -->
+            {#{{ include("backoffice/base_admin_header.html.twig") }}#}
+
+            <!-- Header -->
+            {% block body %}{% endblock %}
+
+            <!-- Footer -->
+            {#{{ include("backoffice/base_admin_footer.html.twig") }}#}
+        </div>
+
+        {% block javascripts %}
+            <!-- Argon Scripts -->
+            <!-- Core -->
+            <script src="{{ asset('plugins/vendor/jquery/dist/jquery.min.js') }}"></script>
+            <script src="{{ asset('plugins/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+            <!--<script src="{{ asset('plugins/vendor/smart-wizard/jquery.smartWizard.js') }}"></script>-->
+            <script src="{{ asset('plugins/vendor/js-cookie/js.cookie.js') }}"></script>
+            <script src="{{ asset('plugins/vendor/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
+            <script src="{{ asset('plugins/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js') }}"></script>
+            <script src="{{ asset('plugins/vendor/lavalamp/js/jquery.lavalamp.min.js') }}"></script>
+            <!-- Optional JS -->
+            <script src="{{ asset('plugins/vendor/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+            <script src="{{ asset('plugins/vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+            <script src="{{ asset('plugins/vendor/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+            <script src="{{ asset('plugins/vendor/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}"></script>
+            <script src="{{ asset('plugins/vendor/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+            <script src="{{ asset('plugins/vendor/datatables.net-buttons/js/buttons.flash.min.js') }}"></script>
+            <script src="{{ asset('plugins/vendor/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
+            <script src="{{ asset('plugins/vendor/datatables.net-select/js/dataTables.select.min.js') }}"></script>
+            <script src="{{ asset('plugins/vendor/chart.js/dist/Chart.min.js') }}"></script>
+            <script src="{{ asset('plugins/vendor/chart.js/dist/Chart.extension.js') }}"></script>
+            <script src="{{ asset('plugins/vendor/select2/dist/js/select2.min.js') }}"></script>
+            <script src="{{ asset('plugins/vendor/bootstrap-multiselect/popper.min.js') }}"></script>
+            <script src="{{ asset('plugins/vendor/bootstrap-multiselect/BsMultiSelect.min.js') }}"></script>
+            <!-- Argon JS -->
+{#            <script src="{{ asset('backoffice/js/argon.js?v=1.0.0') }}"></script>#}
+            <!-- General -->
+            <script src="{{ asset('backoffice/js/general.js') }}"></script>
+            <!-- Demo JS - remove this in your project -->
+{#            <script src="{{ asset('backoffice/js/demo.min.js') }}"></script>#}
+        {% endblock %}
+    </body>
+</html>

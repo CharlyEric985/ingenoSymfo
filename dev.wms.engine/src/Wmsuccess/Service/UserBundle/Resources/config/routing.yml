@@ -1,0 +1,11 @@
+manage_user:
+    resource: "@UserBundle/Resources/config/routing/user.yml"
+    prefix:   /admin/user
+
+eternaly_login:
+    path: /login
+    defaults: { _controller: 'App\Wmsuccess\Service\UserBundle\Controller\SecurityController::login' }
+    methods:  [GET, POST]
+
+app_logout:
+    path: /logout

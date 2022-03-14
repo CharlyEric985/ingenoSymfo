@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="{{ app_name|replace({'_': ' '}) }}">
+    <title>{% block title %} {{ app_name|replace({'_': ' '}) }} | {% endblock %}</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('frontoffice/images/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontoffice/images/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontoffice/images/favicon/favicon-16x16.png') }}">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+    {% block stylesheets %}
+        <!-- Icons -->
+        <link rel="stylesheet" href="{{ asset('backoffice/plugins/vendor/nucleo/css/nucleo.css') }}" type="text/css">
+        <link rel="stylesheet"
+              href="{{ asset('backoffice/plugins/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}"
+              type="text/css">
+        <!-- Page plugins -->
+        <link rel="stylesheet" href="{{ asset('backoffice/plugins/vendor/bootstrap/dist/css/bootstrap.min.css') }}"
+              type="text/css">
+        <link rel="stylesheet" href="{{ asset('backoffice/plugins/vendor/animate.css/animate.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('backoffice/plugins/vendor/sweetalert2/dist/sweetalert2.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('backoffice/plugins/vendor/datatables.net-bs4/css/dataTables.bootstrap4.
+            min.css') }}">
+        <link rel="stylesheet" href="{{ asset('backoffice/plugins/vendor/datatables.net-buttons-bs4/css/buttons.
+            bootstrap4.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('backoffice/plugins/vendor/datatables.net-select-bs4/css/select.
+            bootstrap4.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('backoffice/plugins/vendor/select2/dist/css/select2.min.css') }}">
+        <!-- Argon CSS -->
+        <link rel="stylesheet" href="{{ asset('backoffice/plugins/vendor/bootstrap-datepicker/dist/css/
+            bootstrap-datepicker.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('backoffice/plugins/css/argon.css') }}?v=1.0.0" type="text/css">
+        <link rel="stylesheet" href="{{ asset('backoffice/css/custom.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('backoffice/css/inforide.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('backoffice/plugins/css/jquery.nestable.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('backoffice/plugins/summernote/summernote.min.css') }}">
+    {% endblock %}
+</head>
+
+<body>
+{% set locale = app.request.locale %}
+{# Flash message #}
+{% for flashMessage in app.session.flashbag.get('success') %}
+    <div class="d-none kl-flash-message" data-type="success" data-message="{{ flashMessage }}"></div>
+{% endfor %}
+{% for flashMessage in app.session.flashbag.get('error') %}
+    <div class="d-none kl-flash-message" data-type="danger" data-message="{{ flashMessage }}"></div>
+{% endfor %}
+{% for flashMessage in app.session.flashbag.get('info') %}
+    <div class="d-none kl-flash-message" data-type="info" data-message="{{ flashMessage }}"></div>
+{% endfor %}
+<!-- Sidenav -->
+    {{ include('backoffice/sidenav.html.twig') }}
+<!-- Main content -->
+<div class="main-content" id="panel">
+    <!-- Topnav -->
+    {{ include('backoffice/topnav.html.twig') }}
+    <!-- Page content -->
+    {% block body %}
+    {% endblock %}
+</div>
+
+{% block javascripts %}
+    <script src="{{ asset('backoffice/plugins/vendor/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('backoffice/plugins/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('backoffice/plugins/vendor/js-cookie/js.cookie.js') }}"></script>
+    <script src="{{ asset('backoffice/plugins/vendor/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
+    <script src="{{ asset('backoffice/plugins/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js') }}"></script>
+    <script src="{{ asset('backoffice/plugins/vendor/lavalamp/js/jquery.lavalamp.min.js') }}"></script>
+    <script src="{{ asset('backoffice/plugins/vendor/sweetalert2/dist/sweetalert2.min.js') }}"></script>
+    <script src="{{ asset('backoffice/plugins/vendor/bootstrap-notify/bootstrap-notify.min.js') }}"></script>
+    <script src="{{ asset('backoffice/plugins/vendor/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('backoffice/plugins/vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('backoffice/plugins/vendor/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('backoffice/plugins/vendor/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}">
+    </script>
+    <script src="{{ asset('backoffice/plugins/vendor/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('backoffice/plugins/vendor/datatables.net-buttons/js/buttons.flash.min.js') }}"></script>
+    <script src="{{ asset('backoffice/plugins/vendor/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('backoffice/plugins/vendor/datatables.net-select/js/dataTables.select.min.js') }}"></script>
+    <script src="{{ asset('backoffice/plugins/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}
+    ?v=1.0.0"></script>
+    <script src="{{ asset('backoffice/plugins/vendor/select2/dist/js/select2.min.js') }}?v=1.0.0"></script>
+    <script src="{{ asset('backoffice/plugins/vendor/select2/dist/js/i18n/fr.js') }}?v=1.0.0"></script>
+    <script src="{{ asset('backoffice/plugins/vendor/bootstrap-datepicker/dist/locales/bootstrap-datepicker.fr.min.js')
+    }}?v=1.0.0"></script>
+    <script src="{{ asset('backoffice/plugins/js/argon.js') }}?v=1.0.0"></script>
+    <script src="{{ asset('backoffice/plugins/js/jquery.nestable.js') }}"></script>
+    <script src="{{ asset('backoffice/plugins/summernote/summernote.min.js') }}"></script>
+    <script src="{{ asset('backoffice/plugins/summernote/lang/summernote-fr-FR.min.js') }}"></script>
+    {% include 'backoffice/globale_javascript.html.twig'%}
+    <script src="{{ asset('backoffice/js/general.js') }}"></script>
+{% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+security:
+    encoders:
+        App\Wmsuccess\Service\UserBundle\Entity\WmsUser:
+            algorithm: bcrypt
+
+    role_hierarchy:
+        ROLE_USER:       ROLE_USER
+        ROLE_SUPERADMIN: [ROLE_USER, ROLE_ALLOWED_TO_SWITCH]
+
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        # used to reload user from session & other features (e.g. switch_user)
+        app_user_provider:
+            entity:
+                class: App\Wmsuccess\Service\UserBundle\Entity\WmsUser
+                property: email
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: true
+            lazy: true
+            provider: app_user_provider
+            guard:
+                authenticators:
+                    - App\Wmsuccess\Service\UserBundle\Security\LoginFormAuthenticator
+            logout:
+                path: /logout
+                # where to redirect after logout
+                target: /login
+            #user_checker: App\Wmsuccess\Service\UserBundle\Security\UserChecker
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        #- { path: ^/admin, roles: ROLE_SUPERADMIN }
+        #- { path: ^/list, roles: ROLE_USER }

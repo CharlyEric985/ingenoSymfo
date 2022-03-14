@@ -1,0 +1,3 @@
+set_locale:
+    path:     /{_locale}/set-locale
+    defaults: { _controller: "FrontBundle:WmsLocale:setLocale", _locale: fr }

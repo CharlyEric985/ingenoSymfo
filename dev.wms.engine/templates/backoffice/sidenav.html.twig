@@ -1,0 +1,99 @@
+{% set active = 'active' %}
+
+<nav class="sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+    <div class="scrollbar-inner">
+        <!-- Brand -->
+        <div class="sidenav-header d-flex align-items-center">
+            <a class="navbar-brand" href="{{ path('bo_dashboard_index') }}">
+                <img src="{{asset('backoffice/images/logo.png')}}" alt="Logo" class="kl-width-logo" />
+            </a>
+            <div class="ml-auto">
+                <!-- Sidenav toggler -->
+                <div class="sidenav-toggler d-none d-xl-block" data-action="sidenav-unpin" data-target="#sidenav-main">
+                    <div class="sidenav-toggler-inner">
+                        <i class="sidenav-toggler-line"></i>
+                        <i class="sidenav-toggler-line"></i>
+                        <i class="sidenav-toggler-line"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-inner">
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+                <!-- Navigation -->
+                <ul class="navbar-nav mb-md-3">
+                    <li class="nav-item">
+                        <a class="nav-link {{ menu_dashboard is defined ? 'active' }}" href="{{ path('bo_dashboard_index') }}">
+                            <i class="ni ni-shop text-primary"></i>
+                            <span class="nav-link-text">{{ "menu.dashboard"|trans }}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ menu_user is defined ? 'active' }}" href="{{ path('user_index') }}">
+                            <i class="ni ni-single-02 text-primary"></i>
+                            <span class="nav-link-text">{{ "menu.user"|trans }}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="#navbar-basic-data" data-toggle="collapse" role="button" aria-expanded="true"
+                           aria-controls="navbar-quiz">
+                            <i class="ni ni-folder-17 text-primary"></i>
+                            <span class="nav-link-text">{{ "menu.basic.data"|trans }}</span>
+                        </a>
+
+                        <div class="collapse {{ menu_slider is defined or menu_service is defined ? 'show' }}"
+                             id="navbar-basic-data">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link {% if menu_realisation_type is defined %}{{ active }}{% endif %}"
+                                       href="#">
+                                        <span class="nav-link-text">Sous memu 1</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link {% if menu_realisation is defined %}{{ active }}{% endif %}"
+                                       href="#">
+                                        <span class="nav-link-text">Sous memu 2</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="#navbar-devoir-data" data-toggle="collapse" role="button" aria-expanded="true"
+                           aria-controls="navbar-quiz">
+                            <i class="ni ni-folder-17 text-primary"></i>
+                            <span class="nav-link-text">{{ "menu.devoir.data"|trans }}</span>
+                        </a>
+                        <div class="collapse {{ menu_slider_2 is defined or menu_service_2 is defined ? 'show' }}"
+                             id="navbar-devoir-data">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link {% if menu_job is defined %}{{ active }}{% endif %}"
+                                       href="{{ path('job_index') }}">
+                                        <i class="ni ni-briefcase-24 text-primary"></i>
+                                        <span class="nav-link-text">{{ "menu.devoir.job"|trans }}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link {% if menu_staff is defined %}{{ active }}{% endif %}"
+                                       href="{{ path('staff_index') }}">
+                                        <i class="ni ni-single-02 text-primary"></i>
+                                        <span class="nav-link-text">{{ "menu.devoir.staff"|trans }}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,7 @@
+home:
+    resource: "@FrontBundle/Resources/config/routing/home.yml"
+    prefix:   /
+    
+locale:
+    resource: "@FrontBundle/Resources/config/routing/locale.yml"
+    prefix:   /

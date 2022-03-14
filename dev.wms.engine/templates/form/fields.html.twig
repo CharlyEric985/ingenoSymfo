@@ -1,0 +1,20 @@
+{% block form_row %}
+    {%- set attr = attr|merge( {'class': (attr.class|default('') ~ ' form-control')|trim }) -%}
+    {% if compound %}
+        <div class="form-group">
+{#            {{ form_label(form, "", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}#}
+            {{ form_label(form) }}
+{#            {{ form_errors(form) }}#}
+            {{ form_widget(form, {'attr': attr}) }}
+            <small class="kl-input-error">{{ form_errors(form) }}</small>
+        </div>
+    {% else %}
+        <div class="form-group">
+{#            {{ form_label(form, "", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}#}
+            {{ form_label(form) }}
+{#            {{ form_errors(form) }}#}
+            {{ form_widget(form, {'attr': attr}) }}
+            <small class="kl-input-error">{{ form_errors(form) }}</small>
+        </div>
+    {% endif %}
+{% endblock form_row %}

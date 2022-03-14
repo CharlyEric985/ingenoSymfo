@@ -1,0 +1,13 @@
+.kl-input-error ul {
+    list-style: none;
+    font-size: 12px;
+    color: #FF0000;
+}
+label[for="id-upload-file"], .kl-preview-profile {
+    cursor: pointer;
+}
+.kl-icon-delete-photo {
+    position: absolute;
+    z-index: 100;
+    margin: 5px;
+}

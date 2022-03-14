@@ -1,0 +1,10 @@
+Here are the technical documents to read about the Wmsuccess :
+
+- Documentation.txt
+    In the directory data/doc/, it is a documentation to complete for the installation and the setting of the project.
+
+- Access.txt
+    In the directory data/doc/, containing the backoffice access (url and account).
+
+- Structure.txt
+    In the directory data/doc/, it is a symfony 5 structure used during project development.

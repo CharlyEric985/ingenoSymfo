@@ -1,0 +1,32 @@
+Documentation to be completed for the installation and configuration of the project
+
+- - - - - - - -- - - - - - - -- - - - - - - -- - - - - - - -- - - - - - - -
+General remarks :
+- Initial database
+    This is the initial database to execute when setting up the project (database creation part).
+        . Initial in data/dump/wms_database.sql
+        . User Roles Data in data/dump/wms_role.sql
+        . User account data (with admin and superadmin role) in data/wms_user.sql
+
+- Patch to run (in the src/Migrations/)
+    This is a sql script to run to update the table (sorted by date added).
+    See the commands below to run the patch.
+
+- - - - - - - -- - - - - - - -- - - - - - - -- - - - - - - -- - - - - - - -
+Useful order lists :
+- Create password
+    php bin/console security:encode-password
+
+- Update project dependencies
+    composer update
+
+- Check the sql query
+    php bin/console doctrine:migrations:diff
+
+- View the status of migrations
+    php bin/console doctrine:migrations:status --show-versions
+
+- Execute the sql query
+    php bin/console doctrine:migrations:migrate
+    php bin/console doctrine:migrations:migrate 20100621140655
+    php bin/console doctrine:query:sql 'SELECT * FROM product'

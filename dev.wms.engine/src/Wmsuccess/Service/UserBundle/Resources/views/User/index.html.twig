@@ -1,0 +1,58 @@
+{% extends 'backoffice/base.html.twig' %}
+
+{% block title %} {{ parent() }} Utilisateurs {% endblock %}
+
+{% set menu_user = true %}
+
+{% block body %}
+    <!-- Header -->
+    {{ include('backoffice/breadcrumb.html.twig', {
+        'breadcrumb_item_one': 'Listes des utilisateurs',
+        'breadcrumb_item_two': 'Ajouter une utilisateur',
+        'with_link': true,
+        'breadcrumb_link': path('user_new')
+    }) }}
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header border-0">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h3 class="mb-0">Listes des utilisateurs</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <!-- Projects table -->
+                        <table id="id-datatable-users" class="table align-items-center table-flush">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">Rôle</th>
+                                    <th scope="col">Nom et prénom</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Date création</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        {{ include('backoffice/footer.html.twig') }}
+        <!-- End of Footer -->
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        var href_edit_default = "{{ path('user_edit', {id: 0}) }}";
+        var href_delete_default = "{{ path('user_delete', {id: 0}) }}";
+    </script>
+    <script src="{{ asset('backoffice/js/user.list.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'backoffice/base_admin_error.html.twig' %}
+
+{% block title %} {{ parent() }} Erreur 404 {% endblock %}
+
+{% block body %}
+    <div class="container-fluid flex-grow-1 container-p-y">
+        <div class="row">
+            <div class="col-md-12">
+                <p>Désolé, l'URL demandée n'a pas été trouvée</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
